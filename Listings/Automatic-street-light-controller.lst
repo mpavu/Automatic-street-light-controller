@@ -1,0 +1,61 @@
+C51 COMPILER V9.60.0.0   AUTOMATIC_STREET_LIGHT_CONTROLLER                                 03/12/2021 16:44:36 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE AUTOMATIC_STREET_LIGHT_CONTROLLER
+OBJECT MODULE PLACED IN .\Objects\Automatic-street-light-controller.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE Automatic-street-light-controller.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJEC
+                    -TEXTEND PRINT(.\Listings\Automatic-street-light-controller.lst) TABS(2) OBJECT(.\Objects\Automatic-street-light-controll
+                    -er.obj)
+
+line level    source
+
+   1          #include<reg51.h>
+   2          sbit sensor1=P1^0;
+   3          sbit sensor2=P1^1;
+   4          sbit sensor3=P1^2;
+   5          // sensors on street//
+   6          sbit load1=P2^0;
+   7          sbit load2=P2^1;
+   8          sbit load3=P2^2;
+   9          // street light connections//
+  10          void main()
+  11          {
+  12   1      load1=load2=load3=0;
+  13   1      sensor1=sensor2=sensor3=0; // optimal logic based on inpuy//
+  14   1      while(1)
+  15   1      {
+  16   2      
+  17   2        if(sensor1==1)
+  18   2        {
+  19   3        load1=1; // light 1 on
+  20   3        load2=0;  // light2 off
+  21   3        load3=0;  // light3 off
+  22   3        } 
+  23   2        if(sensor2==1)
+  24   2        {
+  25   3        load1=0; // light1 off
+  26   3        load2=1;  // light2 on
+  27   3        load3=0;  // light3 off
+  28   3        }
+  29   2        if(sensor3==1)
+  30   2        {
+  31   3        load1=0; // light1 off
+  32   3        load2=0;  // light2 off
+  33   3        load3=1;  // light3 on
+  34   3        } 
+  35   2        }
+  36   1      }     
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     41    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
